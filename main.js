@@ -5,19 +5,31 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+const { shell } = require('electron');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, titleBarStyle: 'hidden'})
+  mainWindow = new BrowserWindow({width: 1280, height: 800, titleBarStyle: 'hidden'})
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/app/index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+
+  var handleRedirect = (e, url) => {
+    if(url != mainWindow.webContents.getURL()) {
+      e.preventDefault()
+      require('electron').shell.openExternal(url)
+    }
+  }
+
+  mainWindow.webContents.on('will-navigate', handleRedirect)
+  mainWindow.webContents.on('new-window', handleRedirect)
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -26,6 +38,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
 }
 
 // This method will be called when Electron has finished

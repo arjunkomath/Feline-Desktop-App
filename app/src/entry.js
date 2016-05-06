@@ -3,6 +3,7 @@ var ReactDom = require('react-dom');
 
 var Sidebar = require('./components/sidebar');
 var Posts = require('./components/posts');
+var PostWidget = require('./components/post-widget');
 
 var keys = require('./keys');
 
@@ -16,7 +17,10 @@ var App = React.createClass({
             network: true,
             category: 'tech',
             access_token: undefined,
-            posts: []
+            posts: [],
+            post: {},
+            comments: [],
+            media: []
         };
     },
 
@@ -73,15 +77,14 @@ var App = React.createClass({
             .then((responseData) => {
                 console.log(responseData);
                 if (responseData.posts.length > 0) {
+                    this.handleViewPost(responseData.posts[0].id);
                     this.setState({
                         posts: responseData.posts,
-                        loaded: true,
-                        network: true,
+                        network: true
                     });
                 } else {
                     this.setState({
-                        loaded: true,
-                        network: true,
+                        network: true
                     });
                 }
             })
@@ -94,14 +97,37 @@ var App = React.createClass({
     },
 
     handleCategory: function (index) {
-        if(index == 1)
+        if (index == 1)
             this.setState({category: 'tech', posts: []}, () => this.getPosts());
-        else if(index == 2)
+        else if (index == 2)
             this.setState({category: 'games', posts: []}, () => this.getPosts());
-        else if(index == 3)
+        else if (index == 3)
             this.setState({category: 'podcasts', posts: []}, () => this.getPosts());
-        else if(index == 4)
+        else if (index == 4)
             this.setState({category: 'books', posts: []}, () => this.getPosts());
+    },
+
+    handleViewPost: function (id) {
+        this.setState({loaded: false});
+        var requestObj = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.state.access_token,
+                'Host': 'api.producthunt.com'
+            }
+        };
+        fetch('https://api.producthunt.com/v1/posts/' + id, requestObj)
+            .then((response) => response.json())
+            .then((responseData) => {
+                console.log(responseData);
+                this.setState({
+                    comments: responseData.post.comments,
+                    media: responseData.post.media,
+                    post: responseData.post,
+                    loaded: true
+                });
+            });
     },
 
     render: function () {
@@ -109,7 +135,8 @@ var App = React.createClass({
             <Window>
                 <Content>
                     <Sidebar changeCategory={this.handleCategory}/>
-                    <Posts posts={this.state.posts}/>
+                    <Posts posts={this.state.posts} post={this.state.post} viewPost={this.handleViewPost}/>
+                    <PostWidget post={this.state.post} comments={this.state.comments} media={this.state.media} load={this.state.loaded}/>
                 </Content>
             </Window>
         );

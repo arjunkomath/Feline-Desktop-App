@@ -14,10 +14,10 @@ module.exports = React.createClass({
                 <NavGroup activeKey={1} onSelect={this.onSelect}>
                     <br/>
                     <NavTitle><b>Category</b></NavTitle>
-                    <NavGroupItem eventKey={1} glyph="download" text="Tech" />
-                    <NavGroupItem eventKey={2} glyph="download" text="Games" />
-                    <NavGroupItem eventKey={3} glyph="download" text="Podcasts" />
-                    <NavGroupItem eventKey={4} glyph="download" text="Books" />
+                    <NavGroupItem eventKey={1} glyph="monitor" text="Tech" />
+                    <NavGroupItem eventKey={2} glyph="rocket" text="Games" />
+                    <NavGroupItem eventKey={3} glyph="note" text="Podcasts" />
+                    <NavGroupItem eventKey={4} glyph="book" text="Books" />
                 </NavGroup>
             </Pane>
         );
