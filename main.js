@@ -23,13 +23,13 @@ function createWindow () {
 
   var handleRedirect = (e, url) => {
     if(url != mainWindow.webContents.getURL()) {
-      e.preventDefault()
-      require('electron').shell.openExternal(url)
+      e.preventDefault();
+      require('electron').shell.openExternal(url);
     }
   }
 
-  mainWindow.webContents.on('will-navigate', handleRedirect)
-  mainWindow.webContents.on('new-window', handleRedirect)
+  mainWindow.webContents.on('will-navigate', handleRedirect);
+  mainWindow.webContents.on('new-window', handleRedirect);
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
