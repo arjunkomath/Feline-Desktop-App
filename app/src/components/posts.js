@@ -1,5 +1,5 @@
 var React = require('react');
-import {Pane, ListGroup, ListItem, Icon} from "react-photonkit";
+import {Pane, ListGroup, ListItem, Icon, Button} from "react-photonkit";
 var Loader = require('react-loader');
 
 var styles = {
@@ -15,7 +15,8 @@ module.exports = React.createClass({
         var _this = this;
         this.props.posts.map(function (post) {
             posts.push(
-                <div key={post.id} onClick={() => {_this.props.viewPost(post.id); _this.props.post.id = post.id }} style={styles.post}>
+                <div key={post.id} onClick={() => {_this.props.viewPost(post.id); _this.props.post.id = post.id }}
+                     style={styles.post}>
                     <ListItem
                         key={post.id}
                         image={post.thumbnail.image_url}
@@ -36,6 +37,11 @@ module.exports = React.createClass({
                     <ListGroup>
                         {this.renderPost()}
                     </ListGroup>
+
+                    <div style={{marginTop: 10, marginBottom: 10, textAlign: 'center'}}>
+                        <Button ptSize="large" ptStyle="default" text={this.props.loadingMore ? 'LOADING...' : 'LOAD MORE'} onClick={this.props.loadMore}/>
+                    </div>
+
                 </Loader>
             </Pane>
         );

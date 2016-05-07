@@ -16,6 +16,8 @@ var App = React.createClass({
             loaded: false,
             network: true,
             category: 'tech',
+            days_ago: 0,
+            loadingMore: false,
             access_token: undefined,
             posts: [],
             post: {},
@@ -25,7 +27,6 @@ var App = React.createClass({
     },
 
     componentDidMount: function () {
-        console.log('fetch');
         this.fetchData();
     },
 
@@ -62,8 +63,7 @@ var App = React.createClass({
     },
 
     getPosts: function () {
-        var url = 'https://api.producthunt.com/v1/categories/' + this.state.category + '/posts?days_ago=0';
-        console.log(url);
+        var url = 'https://api.producthunt.com/v1/categories/' + this.state.category + '/posts?days_ago=' + this.state.days_ago;
         var requestObj = {
             headers: {
                 'Accept': 'application/json',
@@ -130,13 +130,53 @@ var App = React.createClass({
             });
     },
 
+    loadMore: function () {
+        if(this.state.loadingMore)
+            return false;
+        this.setState({days_ago: this.state.days_ago + 1, loadingMore: true}, function () {
+            var url = 'https://api.producthunt.com/v1/categories/' + this.state.category + '/posts?days_ago=' + this.state.days_ago;
+            var requestObj = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.state.access_token,
+                    'Host': 'api.producthunt.com'
+                }
+            };
+            fetch(url, requestObj)
+                .then((response) => response.json())
+                .then((responseData) => {
+                    if (responseData.posts.length > 0) {
+                        this.handleViewPost(responseData.posts[0].id);
+                        this.setState({
+                            posts: this.state.posts.concat(responseData.posts),
+                            loadingMore: false,
+                            network: true
+                        });
+                    } else {
+                        this.setState({
+                            network: true
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    this.setState({
+                        network: false
+                    });
+                });
+        });
+    },
+
     render: function () {
         return (
             <Window>
                 <Content>
                     <Sidebar changeCategory={this.handleCategory}/>
-                    <Posts posts={this.state.posts} post={this.state.post} viewPost={this.handleViewPost}/>
-                    <PostWidget post={this.state.post} comments={this.state.comments} media={this.state.media} load={this.state.loaded}/>
+                    <Posts posts={this.state.posts} post={this.state.post} viewPost={this.handleViewPost}
+                           loadMore={this.loadMore} loadingMore={this.state.loadingMore} />
+                    <PostWidget post={this.state.post} comments={this.state.comments} media={this.state.media}
+                                load={this.state.loaded}/>
                 </Content>
             </Window>
         );
