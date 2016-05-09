@@ -9,6 +9,21 @@ var styles = {
     post: {
         marginLeft: 20,
         marginRight: 20
+    },
+    tag: {
+        background: '#f2f2f2',
+        borderColor: '#f2f2f2',
+        color: '#000',
+        fill: '#000',
+        marginLeft: 2,
+        marginRight: 2,
+        paddingLeft: 5,
+        paddingRight: 5,
+        paddingTop: 5,
+        paddingBottom: 5,
+        borderRadius: 5,
+        fontSize: '0.8em',
+        textTransform: 'uppercase'
     }
 }
 
@@ -16,7 +31,7 @@ module.exports = React.createClass({
 
     renderSlide: function () {
         var slides = [];
-        var i=0;
+        var i = 0;
         this.props.post.media.map(function (m) {
             i++;
             if (m.media_type == 'image')
@@ -49,6 +64,18 @@ module.exports = React.createClass({
         );
     },
 
+    renderTopics: function () {
+        if (!this.props.load)
+            return false;
+        var topics = [];
+        var i = 0;
+        this.props.post.topics.map(function (t) {
+            i++;
+            topics.push(<span key={i} style={styles.tag}>{t.name}</span>)
+        })
+        return topics
+    },
+
     openUrl: function (url) {
         console.log(url);
         window.open(url);
@@ -73,6 +100,11 @@ module.exports = React.createClass({
                             <Button style={{marginLeft: 10}} ptStyle="primary" text="GET IT"
                                     onClick={() => this.openUrl(this.props.post.redirect_url)}/>
                         </p>
+                        <p>
+                            {this.renderTopics()}
+                        </p>
+                        <hr />
+
 
                         <Comments comments={this.props.comments}/>
 

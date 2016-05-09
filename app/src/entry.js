@@ -147,7 +147,7 @@ var App = React.createClass({
                 .then((response) => response.json())
                 .then((responseData) => {
                     if (responseData.posts.length > 0) {
-                        this.handleViewPost(responseData.posts[0].id);
+                        // this.handleViewPost(responseData.posts[0].id);
                         this.setState({
                             posts: this.state.posts.concat(responseData.posts),
                             loadingMore: false,

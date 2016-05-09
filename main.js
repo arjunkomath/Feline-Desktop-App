@@ -17,7 +17,7 @@ function createWindow () {
   mainWindow.loadURL('file://' + __dirname + '/app/index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   var handleRedirect = (e, url) => {
     if(url != mainWindow.webContents.getURL()) {

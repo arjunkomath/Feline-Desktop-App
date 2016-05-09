@@ -18,7 +18,6 @@ module.exports = React.createClass({
                 <div key={post.id} onClick={() => {_this.props.viewPost(post.id); _this.props.post.id = post.id }}
                      style={styles.post}>
                     <ListItem
-                        key={post.id}
                         image={post.thumbnail.image_url}
                         title={post.name + ' | ' + post.votes_count + ' votes'}
                         subtitle={post.tagline}
