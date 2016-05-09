@@ -31,11 +31,9 @@ module.exports = React.createClass({
 
     renderSlide: function () {
         var slides = [];
-        var i = 0;
         this.props.post.media.map(function (m) {
-            i++;
             if (m.media_type == 'image')
-                slides.push(<div key={i} style={{
+                slides.push(<div style={{
                 backgroundImage: 'url("'+m.image_url+'")',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
