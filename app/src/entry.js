@@ -63,6 +63,9 @@ var App = React.createClass({
     },
 
     getPosts: function () {
+        this.setState({
+            days_ago: 0
+        })
         var url = 'https://api.producthunt.com/v1/categories/' + this.state.category + '/posts?days_ago=' + this.state.days_ago;
         var requestObj = {
             headers: {
