@@ -63,9 +63,6 @@ var App = React.createClass({
     },
 
     getPosts: function () {
-        this.setState({
-            days_ago: 0
-        })
         var url = 'https://api.producthunt.com/v1/categories/' + this.state.category + '/posts?days_ago=' + this.state.days_ago;
         var requestObj = {
             headers: {
@@ -101,13 +98,13 @@ var App = React.createClass({
 
     handleCategory: function (index) {
         if (index == 1)
-            this.setState({category: 'tech', posts: []}, () => this.getPosts());
+            this.setState({category: 'tech', days_ago: 0, posts: []}, () => this.getPosts());
         else if (index == 2)
-            this.setState({category: 'games', posts: []}, () => this.getPosts());
+            this.setState({category: 'games', days_ago: 0, posts: []}, () => this.getPosts());
         else if (index == 3)
-            this.setState({category: 'podcasts', posts: []}, () => this.getPosts());
+            this.setState({category: 'podcasts', days_ago: 0, posts: []}, () => this.getPosts());
         else if (index == 4)
-            this.setState({category: 'books', posts: []}, () => this.getPosts());
+            this.setState({category: 'books', days_ago: 0, posts: []}, () => this.getPosts());
     },
 
     handleViewPost: function (id) {
