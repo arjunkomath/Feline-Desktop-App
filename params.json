@@ -1,0 +1,6 @@
+{
+  "name": "Feline-desktop-app",
+  "tagline": "Feline for Product hunt powered by Electron",
+  "body": "<img src=\"https://lh3.googleusercontent.com/MCoiCCwUan0dxzqRR_Mrr7kO308roYdI2aTsIpUGYWzUmpJT1-R2_J04weQKFEd3Mg=w300-rw\" width=\"75\">\r\n### A beautiful, Open Source unofficial Mac App for [Product Hunt](https://www.producthunt.com/)\r\n----------\r\n## :cloud: Download\r\n<a href=\"https://github.com/arjunkomath/Feline-Desktop-App/releases\">Feline ( Mac ) v0.0.1 beta</a>\r\n\r\n![Feline](http://i.imgur.com/pREGiX8.jpg \"Mockup\")\r\n\r\n## :blush: Contribute\r\n* Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/Feline-Desktop-App/issues)\r\n\r\n## :two_hearts: Thanks\r\n* [Product Hunt Team :)](https://www.producthunt.com/about)\r\n* [Github - Electron](http://electron.atom.io/)\r\n\r\n## :heart_eyes: About Author\r\n* Built with <3 by [Arjun Komath](https://twitter.com/arjunz) / [arjunkomath@gmail.com](mailto:arjunkomath@gmail.com)\r\n\r\n## :copyright: License\r\n* See the [LICENSE](https://github.com/arjunkomath/Feline-Desktop-App/blob/master/LICENSE) file for license rights and limitations (MIT).\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
