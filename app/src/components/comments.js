@@ -1,5 +1,6 @@
 var React = require('react');
 import {Icon} from "react-photonkit";
+var Linkify = require('react-linkify');
 
 var ChildComments = require('./child-comments');
 
@@ -32,7 +33,7 @@ module.exports = React.createClass({
                         <b>{comment.user.name}</b> <Icon glyph="up-open-big" title="up-open-big"/> {comment.votes}
                     </p>
                     <p>
-                        {comment.body}
+                        <Linkify>{comment.body}</Linkify>
                     </p>
                     <div style={styles.childStyle}>
                         <ChildComments comments={ comment.child_comments } />

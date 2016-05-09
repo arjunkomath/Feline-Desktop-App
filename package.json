@@ -7,7 +7,8 @@
     "start": "ENVIRONMENT=DEV ./node_modules/.bin/electron .",
     "build": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack-dev-server --hot --inline",
-    "osx-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=darwin --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\" --icon feline.icns"
+    "osx-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=darwin --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\" --icon feline.icns",
+    "win-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=win32 --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\""
   },
   "keywords": [
     "product",
@@ -30,6 +31,7 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "electron": "^0.4.1",
+    "react-linkify": "^0.1.1",
     "react-loader": "^2.4.0",
     "react-photonkit": "^0.4.1",
     "webpack": "^1.13.0",
