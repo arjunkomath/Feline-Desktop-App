@@ -1,11 +1,10 @@
-<img src="https://lh3.googleusercontent.com/MCoiCCwUan0dxzqRR_Mrr7kO308roYdI2aTsIpUGYWzUmpJT1-R2_J04weQKFEd3Mg=w300-rw" width="75">
-# Feline for Product Hunt - Mac App
-### A beautiful, Open Source unofficial Mac App for [Product Hunt](https://www.producthunt.com/)
+![Feline](http://i.imgur.com/pREGiX8.jpg "Mockup")
+# Feline for Product Hunt - Desktop App
+### A beautiful, Open Source unofficial Desktop App for [Product Hunt](https://www.producthunt.com/)
 ----------
 ## :cloud: Download
-<a href="https://github.com/arjunkomath/Feline-Desktop-App/releases">Feline ( Mac ) v0.0.1 beta</a>
-
-![Feline](http://i.imgur.com/pREGiX8.jpg "Mockup")
+### <a href="https://github.com/arjunkomath/Feline-Desktop-App/releases/download/v0.0.1beta/Feline-darwin-x64.zip">Feline ( Mac ) v0.0.1 beta</a>
+### <a href="https://github.com/arjunkomath/Feline-Desktop-App/releases/download/v0.0.1beta/Feline-win32-x64.zip">Feline ( Windows ) v0.0.1 beta</a>
 
 ## :blush: Contribute
 * Feature Request, Bugs and Ideas can be added [here.](https://github.com/arjunkomath/Feline-Desktop-App/issues)
