@@ -1,6 +1,6 @@
 ![Feline](http://i.imgur.com/pREGiX8.jpg "Mockup")
-# Feline for Product Hunt - Mac App
-### A beautiful, Open Source unofficial Mac App for [Product Hunt](https://www.producthunt.com/)
+# Feline for Product Hunt - Desktop App
+### A beautiful, Open Source unofficial Desktop App for [Product Hunt](https://www.producthunt.com/)
 ----------
 ## :cloud: Download
 ### <a href="https://github.com/arjunkomath/Feline-Desktop-App/releases/download/v0.0.1beta/Feline-darwin-x64.zip">Feline ( Mac ) v0.0.1 beta</a>
