@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack-dev-server --hot --inline",
     "osx-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=darwin --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\" --icon feline.icns --asar=True",
-    "win-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=win32 --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\""
+    "win-package": "./node_modules/.bin/webpack -p && ./node_modules/electron-packager/cli.js ./ Feline --out ./bin --platform=win32 --arch=x64 --version=0.35.0 --overwrite --ignore=\"ignore|bin|node_modules\" --asar=True"
   },
   "keywords": [
     "product",
